@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ArabalarSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Arabalar)">
+        <MappingFragment StoreEntitySet="ArabalarSet">
+          <ScalarProperty Name="ArabaNo" ColumnName="ArabaNo" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="BayiNo" ColumnName="BayiNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BayilerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Bayiler)">
+        <MappingFragment StoreEntitySet="BayilerSet">
+          <ScalarProperty Name="BayiNo" ColumnName="BayiNo" />
+          <ScalarProperty Name="BayiAdi" ColumnName="BayiAdi" />
+          <ScalarProperty Name="BayiAdres" ColumnName="BayiAdres" />
+          <ScalarProperty Name="BayiCiro" ColumnName="BayiCiro" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullanicilarSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Kullanicilar)">
+        <MappingFragment StoreEntitySet="KullanicilarSet">
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

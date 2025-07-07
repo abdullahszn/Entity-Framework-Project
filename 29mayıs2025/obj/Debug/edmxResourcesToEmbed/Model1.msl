@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+    <EntitySetMapping Name="Bolges">
+      <EntityTypeMapping TypeName="NorthwindModel.Bolge">
+        <MappingFragment StoreEntitySet="Bolge">
+          <ScalarProperty Name="BolgeID" ColumnName="BolgeID" />
+          <ScalarProperty Name="BolgeTanimi" ColumnName="BolgeTanimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bolgelers">
+      <EntityTypeMapping TypeName="NorthwindModel.Bolgeler">
+        <MappingFragment StoreEntitySet="Bolgeler">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="TerritoryTanimi" ColumnName="TerritoryTanimi" />
+          <ScalarProperty Name="BolgeID" ColumnName="BolgeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategorilers">
+      <EntityTypeMapping TypeName="NorthwindModel.Kategoriler">
+        <MappingFragment StoreEntitySet="Kategoriler">
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+          <ScalarProperty Name="Tanimi" ColumnName="Tanimi" />
+          <ScalarProperty Name="Resim" ColumnName="Resim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MusteriDemographics">
+      <EntityTypeMapping TypeName="NorthwindModel.MusteriDemographic">
+        <MappingFragment StoreEntitySet="MusteriDemographics">
+          <ScalarProperty Name="MusteriTypeID" ColumnName="MusteriTypeID" />
+          <ScalarProperty Name="MusteriDesc" ColumnName="MusteriDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musterilers">
+      <EntityTypeMapping TypeName="NorthwindModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriUnvani" ColumnName="MusteriUnvani" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Bolge" ColumnName="Bolge" />
+          <ScalarProperty Name="PostaKodu" ColumnName="PostaKodu" />
+          <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Faks" ColumnName="Faks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nakliyecilers">
+      <EntityTypeMapping TypeName="NorthwindModel.Nakliyeciler">
+        <MappingFragment StoreEntitySet="Nakliyeciler">
+          <ScalarProperty Name="NakliyeciID" ColumnName="NakliyeciID" />
+          <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personellers">
+      <EntityTypeMapping TypeName="NorthwindModel.Personeller">
+        <MappingFragment StoreEntitySet="Personeller">
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="SoyAdi" ColumnName="SoyAdi" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+          <ScalarProperty Name="UnvanEki" ColumnName="UnvanEki" />
+          <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+          <ScalarProperty Name="IseBaslamaTarihi" ColumnName="IseBaslamaTarihi" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Bolge" ColumnName="Bolge" />
+          <ScalarProperty Name="PostaKodu" ColumnName="PostaKodu" />
+          <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+          <ScalarProperty Name="EvTelefonu" ColumnName="EvTelefonu" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+          <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+          <ScalarProperty Name="BagliCalistigiKisi" ColumnName="BagliCalistigiKisi" />
+          <ScalarProperty Name="FotografPath" ColumnName="FotografPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satis_Detaylaris">
+      <EntityTypeMapping TypeName="NorthwindModel.Satis_Detaylari">
+        <MappingFragment StoreEntitySet="Satis Detaylari">
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="BirimFiyati" ColumnName="BirimFiyati" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="İndirim" ColumnName="İndirim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Satislars">
+      <EntityTypeMapping TypeName="NorthwindModel.Satislar">
+        <MappingFragment StoreEntitySet="Satislar">
+          <ScalarProperty Name="SatisID" ColumnName="SatisID" />
+          <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+          <ScalarProperty Name="SatisTarihi" ColumnName="SatisTarihi" />
+          <ScalarProperty Name="OdemeTarihi" ColumnName="OdemeTarihi" />
+          <ScalarProperty Name="SevkTarihi" ColumnName="SevkTarihi" />
+          <ScalarProperty Name="ShipVia" ColumnName="ShipVia" />
+          <ScalarProperty Name="NakliyeUcreti" ColumnName="NakliyeUcreti" />
+          <ScalarProperty Name="SevkAdi" ColumnName="SevkAdi" />
+          <ScalarProperty Name="SevkAdresi" ColumnName="SevkAdresi" />
+          <ScalarProperty Name="SevkSehri" ColumnName="SevkSehri" />
+          <ScalarProperty Name="SevkBolgesi" ColumnName="SevkBolgesi" />
+          <ScalarProperty Name="SevkPostaKodu" ColumnName="SevkPostaKodu" />
+          <ScalarProperty Name="SevkUlkesi" ColumnName="SevkUlkesi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tedarikcilers">
+      <EntityTypeMapping TypeName="NorthwindModel.Tedarikciler">
+        <MappingFragment StoreEntitySet="Tedarikciler">
+          <ScalarProperty Name="TedarikciID" ColumnName="TedarikciID" />
+          <ScalarProperty Name="SirketAdi" ColumnName="SirketAdi" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriUnvani" ColumnName="MusteriUnvani" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Bolge" ColumnName="Bolge" />
+          <ScalarProperty Name="PostaKodu" ColumnName="PostaKodu" />
+          <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Faks" ColumnName="Faks" />
+          <ScalarProperty Name="WebSayfasi" ColumnName="WebSayfasi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunlers">
+      <EntityTypeMapping TypeName="NorthwindModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="TedarikciID" ColumnName="TedarikciID" />
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+          <ScalarProperty Name="BirimdekiMiktar" ColumnName="BirimdekiMiktar" />
+          <ScalarProperty Name="BirimFiyati" ColumnName="BirimFiyati" />
+          <ScalarProperty Name="HedefStokDuzeyi" ColumnName="HedefStokDuzeyi" />
+          <ScalarProperty Name="YeniSatis" ColumnName="YeniSatis" />
+          <ScalarProperty Name="EnAzYenidenSatisMikatari" ColumnName="EnAzYenidenSatisMikatari" />
+          <ScalarProperty Name="Sonlandi" ColumnName="Sonlandi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MusteriMusteriDemo" TypeName="NorthwindModel.MusteriMusteriDemo" StoreEntitySet="MusteriMusteriDemo">
+      <EndProperty Name="MusteriDemographics">
+        <ScalarProperty Name="MusteriTypeID" ColumnName="MusteriTypeID" />
+      </EndProperty>
+      <EndProperty Name="Musteriler">
+        <ScalarProperty Name="MusteriID" ColumnName="MusteriID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PersonelBolgeler" TypeName="NorthwindModel.PersonelBolgeler" StoreEntitySet="PersonelBolgeler">
+      <EndProperty Name="Bolgeler">
+        <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+      </EndProperty>
+      <EndProperty Name="Personeller">
+        <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ArabalarSet" EntityType="Model1.Store.ArabalarSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BayilerSet" EntityType="Model1.Store.BayilerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KullanicilarSet" EntityType="Model1.Store.KullanicilarSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArabalarBayiler" Association="Model1.Store.ArabalarBayiler">
+      <End Role="Arabalar" EntitySet="ArabalarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+    <AssociationSet Name="KullanicilarBayiler" Association="Model1.Store.KullanicilarBayiler">
+      <End Role="Kullanicilar" EntitySet="KullanicilarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ArabalarSet">
+    <Key>
+      <PropertyRef Name="ArabaNo" />
+    </Key>
+    <Property Name="ArabaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fiyat" Type="decimal" Nullable="false" />
+    <Property Name="BayiNo" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BayilerSet">
+    <Key>
+      <PropertyRef Name="BayiNo" />
+    </Key>
+    <Property Name="BayiNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BayiAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BayiAdres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BayiCiro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullanicilarSet">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="ArabalarBayiler">
+    <End Role="Arabalar" Type="Model1.Store.ArabalarSet" Multiplicity="*" />
+    <End Role="Bayiler" Type="Model1.Store.BayilerSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bayiler">
+        <PropertyRef Name="BayiNo" />
+      </Principal>
+      <Dependent Role="Arabalar">
+        <PropertyRef Name="BayiNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KullanicilarBayiler">
+    <End Role="Kullanicilar" Type="Model1.Store.KullanicilarSet" Multiplicity="1" />
+    <End Role="Bayiler" Type="Model1.Store.BayilerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciNo" />
+      </Principal>
+      <Dependent Role="Bayiler">
+        <PropertyRef Name="KullaniciNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArabalarSet" EntityType="Model1.Arabalar" />
+          <EntitySet Name="BayilerSet" EntityType="Model1.Bayiler" />
+          <AssociationSet Name="ArabalarBayiler" Association="Model1.ArabalarBayiler">
+            <End Role="Arabalar" EntitySet="ArabalarSet" />
+            <End Role="Bayiler" EntitySet="BayilerSet" />
+          </AssociationSet>
+          <EntitySet Name="KullanicilarSet" EntityType="Model1.Kullanicilar" />
+          <AssociationSet Name="KullanicilarBayiler" Association="Model1.KullanicilarBayiler">
+            <End Role="Kullanicilar" EntitySet="KullanicilarSet" />
+            <End Role="Bayiler" EntitySet="BayilerSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Arabalar">
+          <Key>
+            <PropertyRef Name="ArabaNo" />
+          </Key>
+          <Property Name="ArabaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marka" Type="String" Nullable="false" />
+          <Property Name="Model" Type="String" Nullable="false" />
+          <Property Name="Fiyat" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Bayiler" Relationship="Model1.ArabalarBayiler" FromRole="Arabalar" ToRole="Bayiler" />
+          <Property Name="BayiNo" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Bayiler">
+          <Key>
+            <PropertyRef Name="BayiNo" />
+          </Key>
+          <Property Name="BayiNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BayiAdi" Type="String" Nullable="false" />
+          <Property Name="BayiAdres" Type="String" Nullable="false" />
+          <Property Name="BayiCiro" Type="String" Nullable="false" />
+          <Property Name="Adet" Type="String" Nullable="false" />
+          <NavigationProperty Name="Arabalar" Relationship="Model1.ArabalarBayiler" FromRole="Bayiler" ToRole="Arabalar" />
+          <Property Name="KullaniciNo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ArabalarBayiler">
+          <End Type="Model1.Arabalar" Role="Arabalar" Multiplicity="*" />
+          <End Type="Model1.Bayiler" Role="Bayiler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Bayiler">
+              <PropertyRef Name="BayiNo" />
+            </Principal>
+            <Dependent Role="Arabalar">
+              <PropertyRef Name="BayiNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciNo" />
+          </Key>
+          <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" Nullable="false" />
+          <Property Name="Sifre" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="KullanicilarBayiler">
+          <End Type="Model1.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+          <End Type="Model1.Bayiler" Role="Bayiler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciNo" />
+            </Principal>
+            <Dependent Role="Bayiler">
+              <PropertyRef Name="KullaniciNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="ArabalarSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Arabalar)">
+        <MappingFragment StoreEntitySet="ArabalarSet">
+          <ScalarProperty Name="ArabaNo" ColumnName="ArabaNo" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="BayiNo" ColumnName="BayiNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BayilerSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Bayiler)">
+        <MappingFragment StoreEntitySet="BayilerSet">
+          <ScalarProperty Name="BayiNo" ColumnName="BayiNo" />
+          <ScalarProperty Name="BayiAdi" ColumnName="BayiAdi" />
+          <ScalarProperty Name="BayiAdres" ColumnName="BayiAdres" />
+          <ScalarProperty Name="BayiCiro" ColumnName="BayiCiro" />
+          <ScalarProperty Name="Adet" ColumnName="Adet" />
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KullanicilarSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Kullanicilar)">
+        <MappingFragment StoreEntitySet="KullanicilarSet">
+          <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c0535e948264d7eab83e181d614d3bb" Name="Diagram1">
+        <EntityTypeShape EntityType="OzcompanyModel.Departman" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OzcompanyModel.Personel" Width="1.5" PointX="5.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OzcompanyModel.sysdiagram" Width="1.5" PointX="2.375" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="OzcompanyModel.FK_Personel_Departman" />
+        <EntityTypeShape EntityType="OzcompanyModel.Kullanicilar" Width="1.5" PointX="7.625" PointY="3.5" />
+        <EntityTypeShape EntityType="OzcompanyModel.Şubeler" Width="1.5" PointX="4.375" PointY="4.875" />
+        <AssociationConnector Association="OzcompanyModel.FK_Personel_Şubeler" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

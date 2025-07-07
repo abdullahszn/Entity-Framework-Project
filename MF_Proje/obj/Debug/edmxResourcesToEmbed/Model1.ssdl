@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="ArabalarSet" EntityType="Model1.Store.ArabalarSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BayilerSet" EntityType="Model1.Store.BayilerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KullanicilarSet" EntityType="Model1.Store.KullanicilarSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ArabalarBayiler" Association="Model1.Store.ArabalarBayiler">
+      <End Role="Arabalar" EntitySet="ArabalarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+    <AssociationSet Name="KullanicilarBayiler" Association="Model1.Store.KullanicilarBayiler">
+      <End Role="Kullanicilar" EntitySet="KullanicilarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ArabalarSet">
+    <Key>
+      <PropertyRef Name="ArabaNo" />
+    </Key>
+    <Property Name="ArabaNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Model" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fiyat" Type="decimal" Nullable="false" />
+    <Property Name="BayiNo" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="BayilerSet">
+    <Key>
+      <PropertyRef Name="BayiNo" />
+    </Key>
+    <Property Name="BayiNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BayiAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BayiAdres" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BayiCiro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KullaniciNo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KullanicilarSet">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="ArabalarBayiler">
+    <End Role="Arabalar" Type="Model1.Store.ArabalarSet" Multiplicity="*" />
+    <End Role="Bayiler" Type="Model1.Store.BayilerSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bayiler">
+        <PropertyRef Name="BayiNo" />
+      </Principal>
+      <Dependent Role="Arabalar">
+        <PropertyRef Name="BayiNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KullanicilarBayiler">
+    <End Role="Kullanicilar" Type="Model1.Store.KullanicilarSet" Multiplicity="1" />
+    <End Role="Bayiler" Type="Model1.Store.BayilerSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciNo" />
+      </Principal>
+      <Dependent Role="Bayiler">
+        <PropertyRef Name="KullaniciNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

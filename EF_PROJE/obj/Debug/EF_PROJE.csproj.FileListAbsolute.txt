@@ -1,0 +1,16 @@
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EF_PROJE.exe.config
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EF_PROJE.exe
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EF_PROJE.pdb
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EntityFramework.dll
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EntityFramework.xml
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.csproj.AssemblyReference.cache
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.Form1.resources
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.Properties.Resources.resources
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.csproj.GenerateResource.cache
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.csproj.CoreCompileInputs.cache
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.csproj.Up2Date
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.exe
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.pdb
+C:\Users\abdul\OneDrive\Desktop\EF_PROJE\EF_PROJE\obj\Debug\EF_PROJE.Giris.resources

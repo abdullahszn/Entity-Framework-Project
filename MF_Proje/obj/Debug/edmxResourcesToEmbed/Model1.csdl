@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArabalarSet" EntityType="Model1.Arabalar" />
+    <EntitySet Name="BayilerSet" EntityType="Model1.Bayiler" />
+    <AssociationSet Name="ArabalarBayiler" Association="Model1.ArabalarBayiler">
+      <End Role="Arabalar" EntitySet="ArabalarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+    <EntitySet Name="KullanicilarSet" EntityType="Model1.Kullanicilar" />
+    <AssociationSet Name="KullanicilarBayiler" Association="Model1.KullanicilarBayiler">
+      <End Role="Kullanicilar" EntitySet="KullanicilarSet" />
+      <End Role="Bayiler" EntitySet="BayilerSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Arabalar">
+    <Key>
+      <PropertyRef Name="ArabaNo" />
+    </Key>
+    <Property Name="ArabaNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Marka" Type="String" Nullable="false" />
+    <Property Name="Model" Type="String" Nullable="false" />
+    <Property Name="Fiyat" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Bayiler" Relationship="Model1.ArabalarBayiler" FromRole="Arabalar" ToRole="Bayiler" />
+    <Property Name="BayiNo" Type="Int32" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Bayiler">
+    <Key>
+      <PropertyRef Name="BayiNo" />
+    </Key>
+    <Property Name="BayiNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BayiAdi" Type="String" Nullable="false" />
+    <Property Name="BayiAdres" Type="String" Nullable="false" />
+    <Property Name="BayiCiro" Type="String" Nullable="false" />
+    <Property Name="Adet" Type="String" Nullable="false" />
+    <NavigationProperty Name="Arabalar" Relationship="Model1.ArabalarBayiler" FromRole="Bayiler" ToRole="Arabalar" />
+    <Property Name="KullaniciNo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="ArabalarBayiler">
+    <End Type="Model1.Arabalar" Role="Arabalar" Multiplicity="*" />
+    <End Type="Model1.Bayiler" Role="Bayiler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Bayiler">
+        <PropertyRef Name="BayiNo" />
+      </Principal>
+      <Dependent Role="Arabalar">
+        <PropertyRef Name="BayiNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" Nullable="false" />
+    <Property Name="Sifre" Type="String" Nullable="false" />
+  </EntityType>
+  <Association Name="KullanicilarBayiler">
+    <End Type="Model1.Kullanicilar" Role="Kullanicilar" Multiplicity="1" />
+    <End Type="Model1.Bayiler" Role="Bayiler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciNo" />
+      </Principal>
+      <Dependent Role="Bayiler">
+        <PropertyRef Name="KullaniciNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

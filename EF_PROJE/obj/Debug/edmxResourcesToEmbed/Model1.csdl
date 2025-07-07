@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OzcompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Departman">
+    <Key>
+      <PropertyRef Name="DepartmanNo" />
+    </Key>
+    <Property Name="DepartmanNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CalisanSayisi" Type="Int32" />
+    <NavigationProperty Name="Personels" Relationship="OzcompanyModel.FK_Personel_Departman" FromRole="Departman" ToRole="Personel" />
+    <Property Name="Tanim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="PersonelNo" />
+    </Key>
+    <Property Name="PersonelNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Yas" Type="Int32" />
+    <Property Name="Meslek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mezuniyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Maas" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DepartmanNo" Type="Int32" />
+    <NavigationProperty Name="Departman" Relationship="OzcompanyModel.FK_Personel_Departman" FromRole="Personel" ToRole="Departman" />
+    <Property Name="SubeID" Type="Int32" />
+    <NavigationProperty Name="Şubeler" Relationship="OzcompanyModel.FK_Personel_Şubeler" FromRole="Personel" ToRole="Şubeler" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="OzcompanyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departmen" EntityType="Self.Departman" />
+    <EntitySet Name="Personels" EntityType="Self.Personel" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Personel_Departman" Association="OzcompanyModel.FK_Personel_Departman">
+      <End Role="Departman" EntitySet="Departmen" />
+      <End Role="Personel" EntitySet="Personels" />
+    </AssociationSet>
+    <EntitySet Name="Kullanicilars" EntityType="OzcompanyModel.Kullanicilar" />
+    <EntitySet Name="Şubeler" EntityType="OzcompanyModel.Şubeler" />
+    <AssociationSet Name="FK_Personel_Şubeler" Association="OzcompanyModel.FK_Personel_Şubeler">
+      <End Role="Şubeler" EntitySet="Şubeler" />
+      <End Role="Personel" EntitySet="Personels" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Personel_Departman">
+    <End Type="OzcompanyModel.Departman" Role="Departman" Multiplicity="0..1" />
+    <End Type="OzcompanyModel.Personel" Role="Personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departman">
+        <PropertyRef Name="DepartmanNo" />
+      </Principal>
+      <Dependent Role="Personel">
+        <PropertyRef Name="DepartmanNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciNo" />
+    </Key>
+    <Property Name="KullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Şubeler">
+    <Key>
+      <PropertyRef Name="SubeID" />
+    </Key>
+    <Property Name="SubeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubeAdı" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubeAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personels" Relationship="OzcompanyModel.FK_Personel_Şubeler" FromRole="Şubeler" ToRole="Personel" />
+  </EntityType>
+  <Association Name="FK_Personel_Şubeler">
+    <End Type="OzcompanyModel.Şubeler" Role="Şubeler" Multiplicity="0..1" />
+    <End Type="OzcompanyModel.Personel" Role="Personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Şubeler">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="Personel">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
